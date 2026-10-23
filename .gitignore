@@ -13,9 +13,28 @@
 !/.idea/codeStyles/**
 .DS_Store
 /build
+build/
 /captures
+captures/
 .externalNativeBuild
 .cxx
 local.properties
 .kotlin/
 .hotswan/
+
+# Generated output and local logs
+*.log
+*.aab
+*.apk
+output-metadata.json
+misc.xml
+deploymentTargetDropDown.xml
+render.experimental.xml
+
+# Local signing and service configuration
+*.jks
+*.keystore
+google-services.json
+
+# Android profiling
+*.hprof
