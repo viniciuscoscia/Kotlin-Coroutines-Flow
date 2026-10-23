@@ -16,14 +16,22 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.CoroutineName
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
+import kotlinx.coroutines.plus
 import kotlin.time.Duration.Companion.seconds
 
+/**
+ * Assignment #1
+ * Throughout your day, you came up with a name for each bird: Tweety, Zazu, and Woodstock.
+ * Instructions
+ * Continuing from the previous program you’ve written in Coroutine Basics, give each coroutine a name and print them out alongside the sounds they make.
+ */
 object CoroutineContextsHomework1 {
 
 	@Composable
-	fun Assignment3(modifier: Modifier = Modifier) {
+	fun Assignment(modifier: Modifier = Modifier) {
 		var selectedBird by rememberSaveable { mutableStateOf<Bird?>(null) }
 
 		Surface(modifier = modifier.fillMaxSize()) {
@@ -37,20 +45,20 @@ object CoroutineContextsHomework1 {
 				),
 				horizontalAlignment = Alignment.CenterHorizontally
 			) {
-				Button(onClick = { selectedBird = Bird.Pigeon }) {
-					Text("Pigeon")
+				Button(onClick = { selectedBird = Bird.Tweety }) {
+					Text("Tweety")
 				}
-				Button(onClick = { selectedBird = Bird.Crow }) {
-					Text("Crow")
+				Button(onClick = { selectedBird = Bird.Zazu }) {
+					Text("Zazu")
 				}
-				Button(onClick = { selectedBird = Bird.Sparrow }) {
-					Text("Sparrow")
+				Button(onClick = { selectedBird = Bird.Woodstock }) {
+					Text("Woodstock")
 				}
 
 				when (selectedBird) {
-					Bird.Pigeon -> Pigeon()
-					Bird.Crow -> Crow()
-					Bird.Sparrow -> Sparrow()
+					Bird.Tweety -> Tweety()
+					Bird.Zazu -> Zazu()
+					Bird.Woodstock -> Woodstock()
 					null -> Text("Choose a bird to hear its sound")
 				}
 			}
@@ -58,20 +66,22 @@ object CoroutineContextsHomework1 {
 	}
 
 	@Composable
-	private fun Pigeon() {
-		Text("Selected bird: Pigeon")
+	private fun Tweety() {
+		Text("Selected bird: Tweety")
 
 		LaunchedEffect(Unit) {
+			this + CoroutineName("Tweety")
 			while (isActive) {
 				delay(1.seconds)
 				println("Coo")
+				println("${coroutineContext[CoroutineName]}")
 			}
 		}
 	}
 
 	@Composable
-	private fun Crow() {
-		Text("Selected bird: Crow")
+	private fun Zazu() {
+		Text("Selected bird: Zazu")
 
 		LaunchedEffect(Unit) {
 			while (isActive) {
@@ -82,8 +92,8 @@ object CoroutineContextsHomework1 {
 	}
 
 	@Composable
-	private fun Sparrow() {
-		Text("Selected bird: Sparrow")
+	private fun Woodstock() {
+		Text("Selected bird: Woodstock")
 
 		LaunchedEffect(Unit) {
 			while (isActive) {
@@ -94,12 +104,18 @@ object CoroutineContextsHomework1 {
 	}
 
 	private enum class Bird {
-		Pigeon,
-		Crow,
-		Sparrow
+		Tweety,
+		Zazu,
+		Woodstock
 	}
 }
 
+/**
+ * Assignment #2
+ * You’ve taken a couple of pictures of the birds you hear each morning, and you decide to write an application to select one of these pictures and then set the app’s background to the predominant color in the image.
+ * Instructions
+ * Take the existing project shared below with a single screen containing a button and the RotatingBox composable. Tapping the button should launch a picker that allows the user to select an image. Once an image is selected, use the function findDominantColor to get the primary color in the image. Change the app’s background to this new color.
+ */
 object CoroutineContextsHomework2{
 	fun run() {
 
