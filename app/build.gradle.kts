@@ -21,9 +21,7 @@ android {
 
     buildTypes {
         release {
-            optimization {
-                enable = false
-            }
+            isMinifyEnabled = false
         }
     }
     compileOptions {
@@ -36,6 +34,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":app:shared"))
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
 	implementation(libs.androidx.activity.ktx)

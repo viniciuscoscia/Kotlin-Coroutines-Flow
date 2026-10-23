@@ -1,0 +1,3 @@
+package lab
+actual suspend fun platformSynchronization(topic:Int,records:List<String>,emit:(String)->Unit) { if(topic in 24..26) { val values=mutableMapOf<Int,String>(); records.take(20).forEachIndexed { i,line -> values[i]=line }; emit("Browser event-loop ownership: ${values.size} entries; JVM locks/threads are unavailable") } }
+actual fun platformTeachingSource(topic:Int):String = if(topic in 24..26) "if(topic in 24..26) { val values=mutableMapOf<Int,String>(); records.take(20).forEachIndexed { i,line -> values[i]=line }; emit(\"Browser event-loop ownership: \${values.size} entries; JVM locks/threads are unavailable\") }" else ""

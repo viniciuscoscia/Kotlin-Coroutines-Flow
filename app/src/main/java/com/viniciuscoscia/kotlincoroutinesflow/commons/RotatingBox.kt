@@ -30,7 +30,7 @@ fun RotatingBox(modifier: Modifier = Modifier) {
     )
 
     Box(
-        modifier = modifier,
+        modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         Box(

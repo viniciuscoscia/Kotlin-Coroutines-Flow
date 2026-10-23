@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Kotlin Coroutines Flow</string>
+    <string name="lesson_selector_title">Coroutine lessons</string>
+    <string name="back_to_lessons">Back</string>
+    <string name="lesson_birds">Bird simulator</string>
+    <string name="lesson_birds_description">Choose a bird and observe its repeating coroutine in Logcat.</string>
+    <string name="lesson_counter">Counter</string>
+    <string name="lesson_counter_description">Watch produceState update a counter every second.</string>
+    <string name="lesson_profile">Profile snackbar</string>
+    <string name="lesson_profile_description">Launch a snackbar from a Compose coroutine scope.</string>
+    <string name="lesson_rotation">Rotating box</string>
+    <string name="lesson_rotation_description">Watch a continuous animation while the UI stays responsive.</string>
+    <string name="coroutine_contexts_homework_1">Coroutine Contexts Homework1</string>
 </resources>

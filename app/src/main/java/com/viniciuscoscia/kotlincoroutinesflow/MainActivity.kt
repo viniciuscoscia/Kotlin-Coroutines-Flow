@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.lifecycle.lifecycleScope
-import com.viniciuscoscia.kotlincoroutinesflow._1coroutinebasics.CoroutineBasicsHomework
 import com.viniciuscoscia.kotlincoroutinesflow._2coroutinecontext.CoroutineContextLessons
 import com.viniciuscoscia.kotlincoroutinesflow.ui.theme.KotlinCoroutinesFlowTheme
 import kotlinx.coroutines.launch
@@ -22,7 +21,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             KotlinCoroutinesFlowTheme {
-                CoroutineBasicsHomework.Assignment3()
+                LaboratoryEntry()
             }
         }
     }

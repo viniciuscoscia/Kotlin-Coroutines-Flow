@@ -15,13 +15,15 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
     repositories {
         google()
         mavenCentral()
     }
 }
 
-rootProject.name = "Kotlin Coroutines Flow"
-include(":app")
+rootProject.name = "KotlinCoroutinesFlow"
+include(":app:androidApp", ":app:desktopApp", ":app:webApp", ":app:shared", ":core", ":server")
+project(":app:androidApp").projectDir = file("app")
+project(":app").projectDir = file("app-container")
  
