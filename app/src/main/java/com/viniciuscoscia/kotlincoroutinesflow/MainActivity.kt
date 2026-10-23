@@ -4,19 +4,25 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.material3.Text
-import com.viniciuscoscia.kotlincoroutinesflow._1coroutinebasics.CoroutineBasicsLessons
+import androidx.lifecycle.lifecycleScope
+import com.viniciuscoscia.kotlincoroutinesflow._1coroutinebasics.CoroutineBasicsHomework
+import com.viniciuscoscia.kotlincoroutinesflow._2coroutinecontext.CoroutineContextLessons
 import com.viniciuscoscia.kotlincoroutinesflow.ui.theme.KotlinCoroutinesFlowTheme
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-//        CoroutineBasicsLessons()
+
+        lifecycleScope.launch {
+//            CoroutineContextLessons.queryDatabase()
+            CoroutineContextLessons.unconfinedDispatcher()
+        }
+
         setContent {
             KotlinCoroutinesFlowTheme {
-                CoroutineBasicsLessons().run()
-                Text("Test")
+                CoroutineBasicsHomework.Assignment3()
             }
         }
     }
